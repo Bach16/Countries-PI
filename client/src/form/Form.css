@@ -1,0 +1,36 @@
+.form{
+    background-color: rgba(128, 128, 128, 0.124);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    padding: 0px 50px;
+    border-radius: 10px;
+}
+.formContainer{
+    display: flex;
+    justify-content: center;
+}
+.form button{
+    width: 30%;
+    height: 40px;
+    border: none;
+    color: white;
+    background-color: rgba(128, 0, 128, 0.616);
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.inputsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.inputsContainer label{
+    font-size: 15px;
+    color: gray; 
+    display: flex;
+}
