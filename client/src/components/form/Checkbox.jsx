@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import "./Checkbox.css"
 const Checkbox = ({id,setIschecked,errorsToRender,setErrorsToRender,renderCheckboxError,ischecked,input,setInput,...props}) => {
-  console.log(errorsToRender);
 
   const findingErrorCheckbox = (id,season)=>{
     if(season) return [id,...season]

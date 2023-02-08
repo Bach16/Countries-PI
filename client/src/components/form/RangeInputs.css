@@ -11,17 +11,13 @@ input[type="range"]{
     margin-right: 10px;
     height: 8px;
     background: #c2c2c2;
-    background-image: linear-gradient(white,white);
+    background-image: linear-gradient(#AA5656,#AA5656);
     background-repeat: no-repeat;
     border-radius: 8px;
     outline: none;
 }
 input[type="range"]::-webkit-slider-runnable-track{
     -webkit-appearance: none;
-    height: 8px;
-}
-input[type="range"]::-moz-track{
-    -moz-appearance: none;
     height: 8px;
 }
 input[type="range"]::-ms-track{
@@ -34,29 +30,20 @@ input[type="range"]::-webkit-slider-thumb{
     bottom: 5px;
     height: 20px;
     width: 20px;
-    background-color: rgb(179, 85, 179);
+    background-color: #AA5656;
     border-radius: 50%;
     cursor: pointer;
     border: none;
 }
 
-input[type="range"]::-ms-thumb{
-    appearance: none;
-    height: 20px;
-    width: 20px;
-    background-color: rgb(179, 85, 179);
-    border-radius: 50%;
-    cursor: pointer;
-    border: none;
-}
 input[type="range"]:active::-webkit-slider-thumb{
-    background-color: rgb(179, 85, 179);
-    border: 2px solid #373737;
+    background-color: #AA5656;
+    border: 2px solid #615953;
 }
 #Svalue{
     width: 13%;
-    background-color: #c5c5c5;
-    color: black;
+    background-color: #AA5656;
+    color: white;
     text-align: center;
     border-radius: 5px;
     margin: 20px 0px;

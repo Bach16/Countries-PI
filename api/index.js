@@ -19,10 +19,18 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const {getCountriesFromApi} = require("./src/controllers/getCountries.api")
+const {dbPostCountries} = require("./src/helpers/postCountries.db")
+const {createSeasonsDb} = require("./src/helpers/postSeasons.db")
+
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+  server.listen(3001, async() => {
+    const data = await getCountriesFromApi()   
+    dbPostCountries(data)
+    createSeasonsDb()
+
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });

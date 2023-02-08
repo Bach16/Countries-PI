@@ -3,6 +3,7 @@ import FormImput from "./FormInput"
 import "./Form.css"
 import CheckboxContainer from "./CheckboxContainer"
 import RangeInputs from "./RangeInputs"
+import CountriesContainer from "./countriesContainer/CountriesContainer"
 
 const Form = () => {
   //----------------------------LocalStates------------------------------------
@@ -154,6 +155,7 @@ const renderCheckboxError= () =>{
               errorsToRender={errorsToRender}
               />
         </form>
+        <CountriesContainer/>
       </div>      
     </>
   )

@@ -4,10 +4,11 @@
     border-radius: 5px;
     width: 250px;
     border: 1px solid gray;
+
 }
 .formInput label{
     font-size: 15px;
-    color: gray; 
+    color: #B99B6B; 
     display: flex;
 }
 .formInput span{

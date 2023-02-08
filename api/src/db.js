@@ -35,8 +35,8 @@ const { Country,Activity,Season } = sequelize.models;
 Country.belongsToMany(Activity,{through:"Country_Activity",timestamps: false})
 Activity.belongsToMany(Country,{through:"Country_Activity",timestamps: false})
 
-Season.belongsToMany(Activity,{through:"Country_Activity",timestamps: false})
-Activity.belongsToMany(Season,{through:"Country_Activity",timestamps: false})
+Season.belongsToMany(Activity,{through:"Season_Activity",timestamps: false})
+Activity.belongsToMany(Season,{through:"Season_Activity",timestamps: false})
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
