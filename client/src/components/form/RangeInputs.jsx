@@ -14,12 +14,8 @@ const RangeInputs = ({value,setValue,setInput,input}) => {
     setInput({
       ...input,
       [e.target.name]:e.target.value            
-  })
-
-             
+    })             
   }
-
-
   return (
     <>
       <label className="label">Difficulty</label>

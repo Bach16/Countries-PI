@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {addFormCountries,deleteFormCountries} from "../../../redux/actions"
+import {addFormCountries} from "../../../redux/actions"
+import "./Result.css"
 
 
-const Result = ({result,id,countriesToRender,setCountriesToRender}) => {
+const Result = ({result,id}) => {
   const dispatch = useDispatch()
   const countriesAdded = useSelector(state=>state.formCountries)
   
@@ -16,9 +17,11 @@ const Result = ({result,id,countriesToRender,setCountriesToRender}) => {
   }
 
   return (
-    <div>
-        <h4 >{result.name}</h4>
-        <button onClick={onClick}>+</button>
+    <div className='result'>
+        <div className='text-container'>
+          <p>{result.name}</p>
+        </div>
+        <button type='none' onClick={onClick}>+</button>
     </div>
   )
 }

@@ -1,12 +1,12 @@
 const axios = require("axios");
 
-async function getUrl (url= "https://restcountries.com/v3/all") {
+async function getApiInfo (url= "https://restcountries.com/v3/all") {
     const apiResponse = await axios.get(url)
     return apiResponse.data
 }
 
 async function getCountriesFromApi () {
-   const data = await getUrl()
+   const data = await getApiInfo()
    const response = data.map(country => {
     return{
         id:country.cca3,
@@ -23,6 +23,6 @@ async function getCountriesFromApi () {
 }
 
 module.exports = {
-    getUrl,
+    getApiInfo,
     getCountriesFromApi,    
 };

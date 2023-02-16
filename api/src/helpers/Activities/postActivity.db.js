@@ -1,16 +1,16 @@
-const {Country,Activity,Season} = require("../db")
+const {Activity} = require("../../db")
 
-const dbPostCountries = async(data) => {
+const postActivityDB = async(data) => {
     const post = {
         name:data.name,
         difficulty:data.difficulty,
         duration:data.duration
     }
     const newActivity = await Activity.create(post);
-    await newActivity.addSeasons(data.season)
-    return newActivity
+    await newActivity.addSeason(data.season)
+    return newActivity.addCountry(data.countries)
 }
 
 module.exports = {
-    dbPostCountries,
+    postActivityDB,
 };

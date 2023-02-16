@@ -2,15 +2,10 @@ import React from 'react'
 import { useEffect } from 'react';
 import "./FormInput.css"
 
-const FormImput = ({label,onChange,errorMessage,errorsToRender,name,value,...inputProps}) => {
-const changeVisibility = () => {
-  let errText = document.getElementById(name)
-  if (errorsToRender[name]?.[0]) errText.style.visibility = "visible"
-  else errText.style.visibility = "hidden"
-}
+const FormImput = ({label,onChange,changeVisibility,errorMessage,errorsToRender,name,value,...inputProps}) => {
 
   useEffect(()=>{
-    changeVisibility()
+    changeVisibility(name)
   },[value])
 
   return (

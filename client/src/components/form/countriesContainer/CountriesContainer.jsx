@@ -20,7 +20,7 @@ const CountriesContainer = () => {
           setCountriesToRender(countries)
         }
     },[countries])
-
+    
   return (
     <div className="Countries-container">
       <div className="Search-container">
@@ -28,7 +28,7 @@ const CountriesContainer = () => {
        <ListCountries countriesToRender={countriesToRender} setCountriesToRender={setCountriesToRender} searchInput={searchInput} searchResults={searchResults}/>
       </div>
       <div className="Results-container">
-        <AddCountries searchResults={searchResults} setCountriesToRender={setCountriesToRender} countriesToRender={countriesToRender} countries={countries}/>
+        <AddCountries countries={countries}/>
       </div>
     </div>
   )

@@ -11,7 +11,7 @@ input[type="range"]{
     margin-right: 10px;
     height: 8px;
     background: #c2c2c2;
-    background-image: linear-gradient(#AA5656,#AA5656);
+    background-image: linear-gradient(#EB6440,#EB6440);
     background-repeat: no-repeat;
     border-radius: 8px;
     outline: none;
@@ -30,19 +30,19 @@ input[type="range"]::-webkit-slider-thumb{
     bottom: 5px;
     height: 20px;
     width: 20px;
-    background-color: #AA5656;
+    background-color: #EB6440;
     border-radius: 50%;
     cursor: pointer;
     border: none;
 }
 
 input[type="range"]:active::-webkit-slider-thumb{
-    background-color: #AA5656;
+    background-color: #EB6440;
     border: 2px solid #615953;
 }
 #Svalue{
     width: 13%;
-    background-color: #AA5656;
+    background-color: #EB6440;
     color: white;
     text-align: center;
     border-radius: 5px;

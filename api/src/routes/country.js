@@ -1,26 +1,23 @@
 const express = require('express');
-const {dbCountries,dbCountryById} = require("../helpers/getCountries.db")
+const {getCountriesFromDB,getCountryByIdFromDB} = require("../helpers/Countries/getCountries.db")
 const axios = require("axios");
 
 
 const countryRouter = express.Router()
 
-countryRouter.get("/", async (req,res,next) => {
+countryRouter.get("/", async (req,res) => {
     try {
         const {name} = req.query
-
-         if (Object.keys(req.query).length) {
+         if (Object.keys(req.query).length) { // Get country by name
             if (!name) {
-                const data = await dbCountries()
+                const data = await getCountriesFromDB()
                 console.log(data[0]);
                 res.status(200).send(data)
             }else{
                 throw new Error("Pokemon not found")
             } 
-        } else {
-            console.log("aja");
-            const db = await dbCountries()
-            console.log(db[0].image.toString('utf8'));
+        } else { // Get all countries
+            const db = await getCountriesFromDB()
             res.status(200).send(db)
         }
     }catch (error) {
@@ -31,8 +28,8 @@ countryRouter.get("/", async (req,res,next) => {
 countryRouter.get("/:id", async (req,res) => {
     try {
         const {id} = req.params
-        if(id.length) {
-            const response = await dbCountryById(id)
+        if(id.length) { //Get country by id
+            const response = await getCountryByIdFromDB(id)
             if (response) res.status(200).send(response)
             else throw new Error("Pokemon not found")
         } else {

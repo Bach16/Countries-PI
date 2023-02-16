@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {deleteFormCountries} from "../../../redux/actions"
+import "./Countryadded.css"
 
 const Countryadded = ({name,id}) => {
 
@@ -9,14 +10,13 @@ const Countryadded = ({name,id}) => {
     const deletCountry = (id)=>{
         return countriesAdded.filter(e=>e !== id)
     }
-    console.log(countriesAdded)
     const onClick = (e)=> {
         dispatch(deleteFormCountries(deletCountry(id)))
     }
     
   return (
-    <div>
-        <h2>{name}</h2>
+    <div className='Selected-countries'>
+        <p className='text-container-results'>{name}</p>
         <button onClick={onClick}>x</button>
     </div>
   )

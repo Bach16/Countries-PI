@@ -1,16 +1,14 @@
 import React from 'react'
-import { useState } from 'react'
 import "./Checkbox.css"
-const Checkbox = ({id,setIschecked,errorsToRender,setErrorsToRender,renderCheckboxError,ischecked,input,setInput,...props}) => {
+const Checkbox = ({id,render,setIschecked,errorsToRender,setErrorsToRender,renderCheckboxError,ischecked,input,setInput,...props}) => {
 
   const findingErrorCheckbox = (id,season)=>{
     if(season) return [id,...season]
     else return[id]
   }
-
   const onChange = (e) => {   
     setIschecked({ ...ischecked,
-      [id]:e.target.checked
+      [render]:e.target.checked
     })
     setInput({
       ...input,
@@ -19,11 +17,11 @@ const Checkbox = ({id,setIschecked,errorsToRender,setErrorsToRender,renderCheckb
   setErrorsToRender({...errorsToRender,season:e.target.checked?findingErrorCheckbox(id,errorsToRender.season):errorsToRender.season.filter((i)=>i !== e.target.id)})       
 
   }
-
+  
   return (
     <div className='checkbox'>
-      <input value={ischecked[id]} id={id} {...props}  checked={ischecked[id]} onChange={onChange}/>
-      <label>{id}</label>
+      <input value={ischecked[render]} id={id} {...props}  checked={ischecked[id]} onChange={onChange}/>
+      <label>{render}</label>
     </div>
   )
 }

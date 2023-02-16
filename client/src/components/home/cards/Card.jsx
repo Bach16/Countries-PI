@@ -5,13 +5,13 @@ import {Link} from "react-router-dom"
 
 const Card = ({id,name,image,continent}) => {
   return (
-    <Link to={`/countrie/${id}`} style={{ color: 'inherit', textDecoration: 'inherit'}}>
-      <div className='card'>
+    <div className='card'>
+      <Link to={`/countrie/${id}`} style={{ color: 'inherit', textDecoration: 'inherit'}}>
         <img src={image} alt="country flag"/>
         <h3>{name}</h3>
         <h4>{continent}</h4>
-      </div>
-    </Link>
+      </Link>
+     </div>
   )
 }
 

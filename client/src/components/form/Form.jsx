@@ -1,17 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FormImput from "./FormInput"
 import "./Form.css"
 import CheckboxContainer from "./CheckboxContainer"
 import RangeInputs from "./RangeInputs"
-import CountriesContainer from "./countriesContainer/CountriesContainer"
 
-const Form = () => {
-  //----------------------------LocalStates------------------------------------
-  const [errorsToRender, setErrorsToRender] = useState({})
-  const [value,setValue] = useState(1);
-  //----------------------------------------------------------------------
+const Form = ({setInput,changeVisibility,value,setValue,input,renderCheckboxError,setErrorsToRender,errorsToRender,ischecked,setIschecked}) => {
 
-  //----------------------Functions--------------------------------------------------
+  //----------------------Error--Functions--------------------------------------------------
   function containsSpecialChars(str) {
     const specialChars = /[`!@#$%^&*£[()_+\/-=\]{};':"\-\|,.<>?~]/;
     return specialChars.test(str);
@@ -40,20 +35,7 @@ const Form = () => {
     }else error = true   
     return error
   } 
-  //---------------------------------------------------------------------
-  
-  const [input,setInput] = useState({
-    name: "",
-    difficulty: "",
-    duration:"",
-    season:[]    
-  })
-  const [ischecked, setIschecked] = useState({
-    spring:false,
-    summer:false,
-    fall:false,
-    winter:false
-  });
+  //---------------------------------------------------------------------  
 
   const inputs = [
     {
@@ -81,57 +63,16 @@ const Form = () => {
       [e.target.name]:e.target.value            
   })
     setErrorsToRender({...errorsToRender,[e.target.name]:[errorsFinder(e.target.value,e.target.type)]}) 
-
-    
   }
-const renderCheckboxError= () =>{
-  let errText = document.getElementById("checkbox-error-text")
-  if(!errorsToRender.season)return
-  if(errorsToRender.season?.length)errText.style.visibility =  "hidden"
-  else errText.style.visibility ="visible"
-}
-
-  const handleSubmit = (e) => {
-    e.preventDefault() 
-    console.log(input);
-    renderCheckboxError()
-    
-    setIschecked({
-      spring:false,
-      summer:false,
-      fall:false,
-      winter:false
-    })
-      setInput({
-      name: "",
-      difficulty: "",
-      duration:"",
-      season:[]     
-          })
-          
-           
-  }
-
-  
   return (
     <>
-      <h1>Create activity</h1>
       <div className='formContainer'>
-        <form className='form' onSubmit={handleSubmit}>
-          <button 
-            className="submit" 
-            type="submit" 
-/*             disabled={!input.name
-            ||!input.difficulty
-            ||!input.duration
-            ||!input.season            
-            }
- */            >Create</button>
             <div className='inputsContainer'>
               {inputs.map(i=> (
                 <FormImput
                   key={i.id} 
                   {...i} 
+                  changeVisibility={changeVisibility}
                   value={input[i.name]} 
                   onChange ={(e)=>onChange(e)}   
                   errorsToRender= {errorsToRender}      
@@ -154,8 +95,6 @@ const renderCheckboxError= () =>{
               setErrorsToRender={setErrorsToRender}
               errorsToRender={errorsToRender}
               />
-        </form>
-        <CountriesContainer/>
       </div>      
     </>
   )

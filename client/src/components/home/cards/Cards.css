@@ -1,8 +1,8 @@
 .cards{
     display: grid;
-    width: 90%;
-    margin: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2.5rem;
-    padding: 40px 0px;
+    width: 80%;
+    grid-template-columns: 1fr 1fr 1fr ;
+    gap: 3rem;
+    padding: auto;
+    margin: 50px 150px 30px 200px;
 }

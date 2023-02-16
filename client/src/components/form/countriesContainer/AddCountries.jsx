@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import Countryadded from "./Countryadded"
+import "./AddCountries.css"
 
-const AddCountries = ({searchResults,setCountriesToRender,countriesToRender,countries}) => {
+const AddCountries = ({countries}) => {
 
     const countriesAdded = useSelector(state=>state.formCountries)
     let [render,setRender] = useState([])
@@ -17,8 +18,8 @@ const AddCountries = ({searchResults,setCountriesToRender,countriesToRender,coun
     let counter = 200
 
   return (
-    <div>
-        <h1>added</h1>
+    <div className='Countries-Selected'>
+        <h2 className='h2-text' >Selected Countries</h2>
         {render.flat().map(c=> <Countryadded name={c.name} key={counter++} id={c.id}/>)}
     </div>
   )
